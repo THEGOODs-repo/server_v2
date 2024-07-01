@@ -1,7 +1,7 @@
 ---
-name: "[bug]"
+name: "[Bug]"
 about: 버그 발생 시 관련한 이슈 템플릿입니다.
-title: "[bug]"
+title: "[Bug]"
 labels: bug
 assignees: ''
 

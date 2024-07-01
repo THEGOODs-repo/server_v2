@@ -1,7 +1,7 @@
 ---
-name: "[docs]"
+name: "[Docs]"
 about: API 명세서 등 문서 관련 템플릿입니다.
-title: "[docs]"
+title: "[Docs]"
 labels: documentation
 assignees: ''
 
