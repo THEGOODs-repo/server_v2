@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.validation.annotation.OrderAvailable;
+import thegoods.server.order.presentation.dto.OrderRequestDTO;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

@@ -1,6 +1,7 @@
 package thegoods.server.common.validation.annotation;
 
-import com.umc.TheGoods.validation.validator.CheckPageValidator;
+
+import thegoods.server.common.validation.validator.CheckPageValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

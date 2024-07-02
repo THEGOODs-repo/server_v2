@@ -1,6 +1,6 @@
 package thegoods.server.common.validation.annotation;
 
-import com.umc.TheGoods.validation.validator.ItemOptionExistValidator;
+import thegoods.server.common.validation.validator.ItemOptionExistValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

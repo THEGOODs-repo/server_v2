@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.validation.annotation.ExistCart;
+import thegoods.server.order.implement.query.CartQueryService;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

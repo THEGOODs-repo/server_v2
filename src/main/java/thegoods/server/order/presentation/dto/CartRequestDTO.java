@@ -1,6 +1,8 @@
 package thegoods.server.order.presentation.dto;
 
 import lombok.Getter;
+import thegoods.server.common.validation.annotation.ExistCart;
+import thegoods.server.common.validation.annotation.ExistItem;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Max;

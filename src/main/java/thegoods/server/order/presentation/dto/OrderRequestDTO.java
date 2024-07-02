@@ -1,6 +1,8 @@
 package thegoods.server.order.presentation.dto;
 
 import lombok.Getter;
+import thegoods.server.common.validation.annotation.ExistOrders;
+import thegoods.server.common.validation.annotation.OrderAvailable;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;

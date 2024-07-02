@@ -1,6 +1,6 @@
 package thegoods.server.common.validation.annotation;
 
-import com.umc.TheGoods.validation.validator.TagExistValidator;
+import thegoods.server.common.validation.validator.TagExistValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
