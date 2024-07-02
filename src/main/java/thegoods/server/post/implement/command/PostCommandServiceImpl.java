@@ -10,6 +10,7 @@ import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.member.domain.Member;
 import thegoods.server.post.converter.PostConverter;
 import thegoods.server.post.domain.*;
+import thegoods.server.post.exception.handler.PostHandler;
 import thegoods.server.post.presentation.dto.PostRequestDTO;
 
 import java.util.List;
