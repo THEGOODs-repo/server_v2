@@ -34,20 +34,20 @@ public class PostApi {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "OK, 성공"),
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON404", description = "Fail, 실패")
     })
-    public ApiResponse<PostResponseDTO.PostListViewDto> getPostByLikes() {
+    public ApiResponse<PostResponseDTO.PostListViewDTO> getPostByLikes() {
         List<PostResponseDTO> posts = postQueryService.getAllPostsSortedByLikes();
-        return ApiResponse.of(SuccessStatus.POST_GET_SUCCESS, new PostResponseDTO.PostListViewDto(posts));
+        return ApiResponse.of(SuccessStatus.POST_GET_SUCCESS, new PostResponseDTO.PostListViewDTO(posts));
     }
 
     @GetMapping("/following/all")
     @Operation(summary = "팔로잉 중인 피드 전체 조회 API")
-    public ApiResponse<PostResponseDTO.PostListViewDto> following(@RequestParam("like") boolean like) {
+    public ApiResponse<PostResponseDTO.PostListViewDTO> following(@RequestParam("like") boolean like) {
         return null;
     }
 
     @GetMapping("/{postId}")
     @Operation(summary = "피드 상세 조회 API", description = "조회 하고자 하는 postId 값이 필요합니다.")
-    public ApiResponse<PostResponseDTO.PostViewDto> post(@PathVariable Long postId) {
+    public ApiResponse<PostResponseDTO.PostViewDTO> post(@PathVariable Long postId) {
         return null;
     }
 
@@ -79,30 +79,30 @@ public class PostApi {
     public ApiResponse<?> registerPost(@RequestPart(value = "content") String content,
                                        @RequestPart(value = "postImgList", required = false) List<MultipartFile> postImgList,
                                        Authentication authentication) {
-        Member member = memberService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
-        postService.registerPost(member, content, postImgList);
+        Member member = memberQueryService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
+        postCommandService.registerPost(member, content, postImgList);
 
         return ApiResponse.of(SuccessStatus.POST_UPLOAD_SUCCESS, null);
     }
 
     @PutMapping("/{postId}")
     @Operation(summary = "피드 수정 API", description = "postId는 수정할 피드 id, content에 feed 내용, postImgList에 배열에 이미지를 담아서 넘겨주면 됩니다.")
-    public ApiResponse<PostResponseDTO.PostStatusDto> updatePost(@PathVariable(name = "postId") Long postId,
+    public ApiResponse<PostResponseDTO.PostStatusDTO> updatePost(@PathVariable(name = "postId") Long postId,
                                                                  @RequestPart(value = "content") String content,
                                                                  @RequestPart(value = "postImgList", required = false) List<MultipartFile> postImgList,
                                                                  Authentication authentication) {
-        Member member = memberService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
-        postService.updatePost(member, postId, content, postImgList);
+        Member member = memberQueryService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
+        postCommandService.updatePost(member, postId, content, postImgList);
 
         return ApiResponse.of(SuccessStatus.POST_UPDATE_SUCCESS, null);
     }
 
     @DeleteMapping("/{postId}")
     @Operation(summary = "피드 삭제 API", description = "postId는 수정할 피드 id, content에 feed 내용, postImgList에 배열에 이미지를 담아서 넘겨주면 됩니다.")
-    public ApiResponse<PostResponseDTO.PostStatusDto> deletePost(@PathVariable(name = "postId") Long postId,
+    public ApiResponse<PostResponseDTO.PostStatusDTO> deletePost(@PathVariable(name = "postId") Long postId,
                                                                  Authentication authentication) {
-        Member member = memberService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
-        postService.deletePost(member, postId);
+        Member member = memberQueryService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
+        postCommandService.deletePost(member, postId);
 
         return ApiResponse.of(SuccessStatus.POST_DELETE_SUCCESS, null);
     }
@@ -111,8 +111,8 @@ public class PostApi {
     @Operation(summary = "피드 좋아요 API", description = "postId: 좋아요 누를 피드 id, 한번 누르면 좋아요 두번 누르면 좋아요 취소")
     public ApiResponse<?> likePost(@PathVariable(name = "postId") Long postId,
                                    Authentication authentication) {
-        Member member = memberService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
-        postService.likePost(member, postId);
+        Member member = memberQueryService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
+        postCommandService.likePost(member, postId);
         return ApiResponse.of(SuccessStatus.POST_LIKE_SUCCESS, null);
     }
 
@@ -121,8 +121,8 @@ public class PostApi {
     @Operation(summary = "댓글 좋아요 API", description = "commentId: 좋아요 누를 댓글 id, 한번 누르면 좋아요 두번 누르면 좋아요 취소")
     public ApiResponse<?> likeComment(@PathVariable(name = "commentId") Long commentId,
                                       Authentication authentication) {
-        Member member = memberService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
-        postService.likeComment(member, commentId);
+        Member member = memberQueryService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
+        postCommandService.likeComment(member, commentId);
         return ApiResponse.of(SuccessStatus.POST_COMMENT_LIKE_SUCCESS, null);
     }
 
@@ -133,8 +133,8 @@ public class PostApi {
     public ApiResponse<?> uploadComment(@PathVariable(name = "postId") Long postId,
                                         Authentication authentication,
                                         @RequestBody PostRequestDTO.CommentDTO request) {
-        Member member = memberService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
-        postService.uploadComment(member, postId, request);
+        Member member = memberQueryService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
+        postCommandService.uploadComment(member, postId, request);
 
         return ApiResponse.of(SuccessStatus.POST_COMMENT_SUCCESS, null);
     }
@@ -145,8 +145,8 @@ public class PostApi {
                                         @PathVariable(name = "commentId") Long commentId,
                                         @RequestBody PostRequestDTO.UpdateCommentDTO requet,
                                         Authentication authentication) {
-        Member member = memberService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
-        postService.updateComment(member, postId, commentId, requet);
+        Member member = memberQueryService.findMemberById(Long.valueOf(authentication.getName().toString())).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
+        postCommandService.updateComment(member, postId, commentId, requet);
 
         return ApiResponse.of(SuccessStatus.POST_UPDATE_COMMENT_SUCCESS, null);
 

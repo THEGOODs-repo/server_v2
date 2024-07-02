@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import thegoods.server.common.exception.handler.JwtHandler;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.security.provider.TokenProvider;
+import thegoods.server.member.domain.Member;
 import thegoods.server.redis.domain.LoginStatus;
 import thegoods.server.redis.domain.RefreshToken;
 import thegoods.server.redis.domain.repository.LoginStatusRepository;
