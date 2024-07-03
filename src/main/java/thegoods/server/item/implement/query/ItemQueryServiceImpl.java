@@ -12,6 +12,9 @@ import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.item.converter.TagSearchConverter;
 import thegoods.server.item.domain.*;
 import thegoods.server.item.domain.repository.*;
+import thegoods.server.item.exception.CategoryHandler;
+import thegoods.server.item.exception.ItemHandler;
+import thegoods.server.item.exception.TagHandler;
 import thegoods.server.member.domain.Member;
 
 import java.time.LocalDate;

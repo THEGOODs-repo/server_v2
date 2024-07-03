@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import thegoods.server.common.enums.OrderStatus;
 import thegoods.server.common.exception.status.ErrorStatus;
+import thegoods.server.item.domain.Item;
 import thegoods.server.member.domain.Member;
 import thegoods.server.order.domain.OrderItem;
 import thegoods.server.order.domain.Orders;
@@ -19,6 +20,9 @@ import thegoods.server.item.domain.repository.ItemRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import thegoods.server.order.exception.OrderHandler;
+
 
 @Slf4j
 @Service

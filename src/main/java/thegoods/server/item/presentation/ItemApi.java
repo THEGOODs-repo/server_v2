@@ -17,6 +17,7 @@ import thegoods.server.common.validation.annotation.CheckPage;
 import thegoods.server.common.validation.annotation.ExistItem;
 import thegoods.server.item.converter.ItemConverter;
 import thegoods.server.item.domain.Item;
+import thegoods.server.item.exception.ItemHandler;
 import thegoods.server.item.implement.command.ItemCommandService;
 import thegoods.server.item.implement.query.ItemQueryService;
 import thegoods.server.item.presentation.dto.ItemRequestDTO;
