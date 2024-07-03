@@ -15,6 +15,7 @@ import thegoods.server.order.domain.Orders;
 import thegoods.server.order.domain.repository.OrderItemRepository;
 import thegoods.server.order.domain.repository.OrderRepository;
 import thegoods.server.order.presentation.dto.OrderRequestDTO;
+import thegoods.server.item.domain.repository.ItemRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;

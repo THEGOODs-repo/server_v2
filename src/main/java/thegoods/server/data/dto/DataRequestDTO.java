@@ -3,6 +3,7 @@ package thegoods.server.data.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.lang.Nullable;
+import thegoods.server.item.presentation.dto.ItemRequestDTO;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

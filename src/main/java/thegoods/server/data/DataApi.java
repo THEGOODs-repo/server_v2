@@ -11,6 +11,7 @@ import thegoods.server.data.dto.DataResponseDTO;
 import thegoods.server.data.implement.DataCommandService;
 import thegoods.server.member.domain.Member;
 import thegoods.server.common.enums.Gender;
+import thegoods.server.item.domain.Item;
 
 
 import javax.validation.Valid;

@@ -6,6 +6,7 @@ import thegoods.server.common.domain.BaseDateTimeEntity;
 import thegoods.server.common.enums.OrderStatus;
 import thegoods.server.common.enums.types.DeliveryType;
 import thegoods.server.order.presentation.dto.OrderRequestDTO;
+import thegoods.server.item.domain.Item;
 
 import javax.persistence.*;
 import java.time.LocalDate;

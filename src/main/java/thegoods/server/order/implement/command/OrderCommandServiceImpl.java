@@ -7,6 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import thegoods.server.common.enums.CartStatus;
 import thegoods.server.common.enums.OrderStatus;
 import thegoods.server.common.exception.status.ErrorStatus;
+import thegoods.server.item.domain.Item;
+import thegoods.server.item.domain.ItemOption;
+import thegoods.server.item.domain.repository.ItemOptionRepository;
 import thegoods.server.member.domain.Member;
 import thegoods.server.order.converter.OrderConverter;
 import thegoods.server.order.domain.Cart;
@@ -17,6 +20,7 @@ import thegoods.server.order.domain.repository.CartRepository;
 import thegoods.server.order.domain.repository.OrderItemRepository;
 import thegoods.server.order.domain.repository.OrderRepository;
 import thegoods.server.order.presentation.dto.OrderRequestDTO;
+import thegoods.server.item.domain.repository.ItemRepository;
 
 @Slf4j
 @Service

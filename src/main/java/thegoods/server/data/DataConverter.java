@@ -7,6 +7,7 @@ import thegoods.server.common.enums.MemberRole;
 import thegoods.server.common.enums.types.DeliveryType;
 import thegoods.server.data.dto.DataRequestDTO;
 import thegoods.server.data.dto.DataResponseDTO;
+import thegoods.server.item.domain.*;
 import thegoods.server.member.domain.Member;
 
 import java.util.ArrayList;
@@ -78,9 +79,9 @@ public class DataConverter {
                 .isLimitless(request.getIsLimitless())
                 .startDate(request.getStartDate())
                 .endDate(request.getEndDate())
-                .dibsCount(request.dibsCount)
-                .viewCount(request.viewCount)
-                .salesCount(request.salesCount)
+                .dibsCount(request.getDibsCount())
+                .viewCount(request.getViewCount())
+                .salesCount(request.getSalesCount())
                 .tagsCount(0)
                 .status(ItemStatus.ONSALE)
                 .price(request.getPrice())

@@ -3,6 +3,7 @@ package thegoods.server.data.implement;
 import org.springframework.web.multipart.MultipartFile;
 import thegoods.server.data.dto.DataRequestDTO;
 import thegoods.server.member.domain.Member;
+import thegoods.server.item.domain.Item;
 
 import java.util.List;
 

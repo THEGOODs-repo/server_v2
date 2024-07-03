@@ -2,8 +2,10 @@ package thegoods.server.order.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import thegoods.server.common.enums.CartStatus;
+import thegoods.server.item.domain.ItemOption;
 import thegoods.server.member.domain.Member;
 import thegoods.server.order.domain.Cart;
+import thegoods.server.item.domain.Item;
 
 import java.util.List;
 import java.util.Optional;

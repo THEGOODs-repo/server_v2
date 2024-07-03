@@ -1,11 +1,11 @@
 package thegoods.server.common.validation.validator;
 
-//import com.umc.TheGoods.service.ItemService.ItemQueryService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.validation.annotation.ExistItem;
+import thegoods.server.item.implement.query.ItemQueryService;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

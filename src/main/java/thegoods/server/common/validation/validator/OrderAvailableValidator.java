@@ -1,14 +1,13 @@
 package thegoods.server.common.validation.validator;
 
-//import com.umc.TheGoods.domain.item.Item;
-//import com.umc.TheGoods.domain.item.ItemOption;
-//import com.umc.TheGoods.service.ItemService.ItemQueryService;
-//import com.umc.TheGoods.web.dto.order.OrderRequestDTO;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.validation.annotation.OrderAvailable;
+import thegoods.server.item.domain.Item;
+import thegoods.server.item.domain.ItemOption;
+import thegoods.server.item.implement.query.ItemQueryService;
 import thegoods.server.order.presentation.dto.OrderRequestDTO;
 
 import javax.validation.ConstraintValidator;

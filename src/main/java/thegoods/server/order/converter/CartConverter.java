@@ -1,8 +1,12 @@
 package thegoods.server.order.converter;
 
 import thegoods.server.common.enums.CartStatus;
+import thegoods.server.item.converter.ItemConverter;
+import thegoods.server.item.presentation.dto.ItemResponseDTO;
 import thegoods.server.order.domain.Cart;
 import thegoods.server.order.presentation.dto.CartResponseDTO;
+import thegoods.server.item.domain.Item;
+import thegoods.server.item.domain.ItemOption;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,11 +6,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import thegoods.server.common.enums.CartStatus;
 import thegoods.server.common.exception.status.ErrorStatus;
+import thegoods.server.item.domain.Item;
+import thegoods.server.item.domain.ItemOption;
 import thegoods.server.member.domain.Member;
 import thegoods.server.order.converter.CartConverter;
 import thegoods.server.order.domain.Cart;
 import thegoods.server.order.domain.repository.CartRepository;
 import thegoods.server.order.presentation.dto.CartRequestDTO;
+import thegoods.server.item.implement.query.ItemQueryService;
 
 import java.util.List;
 import java.util.Optional;

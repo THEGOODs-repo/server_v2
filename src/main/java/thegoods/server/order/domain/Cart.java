@@ -3,7 +3,9 @@ package thegoods.server.order.domain;
 import lombok.*;
 import thegoods.server.common.domain.BaseDateTimeEntity;
 import thegoods.server.common.enums.CartStatus;
+import thegoods.server.item.domain.ItemOption;
 import thegoods.server.member.domain.Member;
+import thegoods.server.item.domain.Item;
 
 import javax.persistence.*;
 
