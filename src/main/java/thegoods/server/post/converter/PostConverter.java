@@ -5,6 +5,14 @@ import thegoods.server.post.domain.*;
 
 public class PostConverter {
 
+    public static Follow toFollow(Member follower, Member following) {
+
+        return Follow.builder()
+                .follower(follower)
+                .following(following)
+                .build();
+    }
+
     public static Post toPost(Member member, String content) {
 
         return Post.builder()

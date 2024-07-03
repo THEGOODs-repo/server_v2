@@ -27,10 +27,10 @@ public class PostResponseDTO {
     }
 
     @Getter
-    public static class PostListViewDto {
+    public static class PostListViewDTO {
         private final List<PostResponseDTO> posts;
 
-        public PostListViewDto(List<PostResponseDTO> posts) {
+        public PostListViewDTO(List<PostResponseDTO> posts) {
             this.posts = posts;
         }
     }
@@ -39,7 +39,7 @@ public class PostResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class PostViewDto {
+    public static class PostViewDTO {
         Long id;
         String title;
         String content;
@@ -54,7 +54,7 @@ public class PostResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class PostStatusDto {
+    public static class PostStatusDTO {
         Long postId;
         String status;
     }
