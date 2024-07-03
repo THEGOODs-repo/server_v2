@@ -8,7 +8,10 @@ import thegoods.server.common.enums.Gender;
 import thegoods.server.common.enums.MemberRole;
 import thegoods.server.common.enums.MemberStatus;
 import thegoods.server.common.enums.types.SocialType;
+import thegoods.server.order.domain.Cart;
+import thegoods.server.order.domain.Orders;
 import thegoods.server.post.domain.*;
+import thegoods.server.item.domain.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;

@@ -1,11 +1,10 @@
 package thegoods.server.common.validation.validator;
 
-//import com.umc.TheGoods.service.TagService.TagQueryService;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.validation.annotation.ExistTag;
+import thegoods.server.item.implement.query.TagQueryService;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

@@ -1,10 +1,10 @@
 package thegoods.server.common.validation.validator;
 
-import com.umc.TheGoods.service.OrderService.OrderQueryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.validation.annotation.ExistOrders;
+import thegoods.server.order.implement.query.OrderQueryService;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

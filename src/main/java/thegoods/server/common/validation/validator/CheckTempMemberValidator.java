@@ -1,11 +1,11 @@
 package thegoods.server.common.validation.validator;
 
-//import com.umc.TheGoods.domain.member.Member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.validation.annotation.CheckTempMember;
+import thegoods.server.member.domain.Member;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
