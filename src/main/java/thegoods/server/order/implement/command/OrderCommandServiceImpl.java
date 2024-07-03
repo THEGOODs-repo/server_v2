@@ -21,6 +21,7 @@ import thegoods.server.order.domain.repository.OrderItemRepository;
 import thegoods.server.order.domain.repository.OrderRepository;
 import thegoods.server.order.presentation.dto.OrderRequestDTO;
 import thegoods.server.item.domain.repository.ItemRepository;
+import thegoods.server.order.exception.OrderHandler;
 
 @Slf4j
 @Service

@@ -8,10 +8,12 @@ import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.item.converter.ReviewConverter;
 import thegoods.server.item.domain.Review;
 import thegoods.server.item.domain.repository.ReviewRepository;
+import thegoods.server.item.exception.ReviewHandler;
 import thegoods.server.item.presentation.dto.ReviewRequestDTO;
 import thegoods.server.member.domain.Member;
 import thegoods.server.order.domain.OrderItem;
 import thegoods.server.order.domain.repository.OrderItemRepository;
+import thegoods.server.order.exception.OrderHandler;
 
 @Slf4j
 @Service

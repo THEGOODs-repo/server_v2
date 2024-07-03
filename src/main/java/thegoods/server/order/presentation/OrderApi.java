@@ -26,6 +26,9 @@ import thegoods.server.order.presentation.dto.OrderResponseDTO;
 
 import javax.validation.Valid;
 
+import thegoods.server.order.exception.OrderHandler;
+
+
 @Slf4j
 @Tag(name = "Order", description = "주문 관련 API")
 @Validated

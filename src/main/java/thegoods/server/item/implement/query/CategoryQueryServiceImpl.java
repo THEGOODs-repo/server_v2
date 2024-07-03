@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.item.domain.Category;
+import thegoods.server.item.exception.CategoryHandler;
 
 @Service
 @RequiredArgsConstructor

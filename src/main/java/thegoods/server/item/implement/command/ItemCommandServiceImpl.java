@@ -10,6 +10,8 @@ import thegoods.server.common.utils.UtilService;
 import thegoods.server.item.converter.*;
 import thegoods.server.item.domain.*;
 import thegoods.server.item.domain.repository.*;
+import thegoods.server.item.exception.ItemHandler;
+import thegoods.server.item.exception.TagHandler;
 import thegoods.server.item.implement.query.CategoryQueryService;
 import thegoods.server.item.presentation.dto.ItemRequestDTO;
 import thegoods.server.member.domain.Member;
