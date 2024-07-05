@@ -13,7 +13,15 @@ import thegoods.server.item.converter.ItemOptionConverter;
 import thegoods.server.item.domain.*;
 import thegoods.server.item.domain.repository.*;
 import thegoods.server.item.implement.query.CategoryQueryService;
+import thegoods.server.member.converter.MemberConverter;
 import thegoods.server.member.domain.Member;
+import thegoods.server.member.domain.MemberTerm;
+import thegoods.server.member.domain.Term;
+import thegoods.server.member.domain.repository.CategoryRepository;
+import thegoods.server.member.domain.repository.MemberRepository;
+import thegoods.server.member.domain.repository.ProfileImgRepository;
+import thegoods.server.member.domain.repository.TermRepository;
+import thegoods.server.member.exception.handler.MemberHandler;
 
 import java.util.HashMap;
 import java.util.List;

@@ -109,13 +109,7 @@ public class Member extends BaseDateTimeEntity {
     private List<Account> memberAccountList = new ArrayList<>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<Declaration> memberDeclarationList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Survey> memberSurveyList = new ArrayList<>();
-
-    @OneToOne(mappedBy = "member")
-    private ContactTime contactTime;
 
     @OneToOne(mappedBy = "member")
     private Revenue revenue;
@@ -173,8 +167,8 @@ public class Member extends BaseDateTimeEntity {
     private List<Follow> followerList = new ArrayList<>();
 
     // Notice 양방향 매핑
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<Notice> noticeList = new ArrayList<>();
+//    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+//    private List<Notice> noticeList = new ArrayList<>();
 
     // Comment 양방향 매핑
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
@@ -187,7 +181,7 @@ public class Member extends BaseDateTimeEntity {
     // CommentMention 양방향 매핑
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<CommentMention> commentMentionList = new ArrayList<>();
-
+/*
     // Inquiry 양방향 매핑
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Inquiry> inquiryList = new ArrayList<>();
@@ -198,7 +192,7 @@ public class Member extends BaseDateTimeEntity {
     // Payment 양방향 매핑
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Payment> paymentList = new ArrayList<>();
-
+*/
     public void setProfileImg(ProfileImg profileImg) {
         this.profileImg = profileImg;
     }

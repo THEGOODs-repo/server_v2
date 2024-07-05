@@ -1,6 +1,7 @@
 package thegoods.server.redis.service;
 
 
+import thegoods.server.member.presentation.dto.MemberRequestDTO;
 import thegoods.server.redis.domain.RefreshToken;
 
 public interface RedisService {

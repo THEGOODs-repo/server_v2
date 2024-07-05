@@ -3,6 +3,7 @@ package thegoods.server.order.implement.query;
 import org.springframework.data.domain.Page;
 import thegoods.server.common.enums.OrderStatus;
 import thegoods.server.member.domain.Member;
+import thegoods.server.member.presentation.dto.MemberResponseDTO;
 import thegoods.server.order.domain.OrderItem;
 import thegoods.server.order.presentation.dto.OrderRequestDTO;
 

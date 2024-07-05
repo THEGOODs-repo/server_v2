@@ -4,6 +4,7 @@ import lombok.*;
 import thegoods.server.common.domain.BaseDateTimeEntity;
 import thegoods.server.common.enums.types.PayType;
 import thegoods.server.member.domain.Member;
+import thegoods.server.payment.domain.Payment;
 
 import javax.persistence.*;
 import java.util.ArrayList;

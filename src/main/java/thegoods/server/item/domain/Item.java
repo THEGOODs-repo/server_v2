@@ -103,8 +103,8 @@ public class Item extends BaseDateTimeEntity {
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
     private List<Review> reviewList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
-    private List<Inquiry> inquiryList = new ArrayList<>();
+    //@OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    //private List<Inquiry> inquiryList = new ArrayList<>();
 
     // 판매수, 재고 관련 메소드
     public Item updateStock(Integer i) {

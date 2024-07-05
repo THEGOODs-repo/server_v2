@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import thegoods.server.common.exception.handler.JwtHandler;
 import thegoods.server.common.exception.status.ErrorStatus;
-import com.umc.TheGoods.web.dto.member.MemberDetail;
+
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Key;
