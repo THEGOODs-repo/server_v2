@@ -15,6 +15,7 @@ import thegoods.server.member.domain.repository.MemberRepository;
 import thegoods.server.member.exception.handler.MemberHandler;
 import thegoods.server.post.converter.PostConverter;
 import thegoods.server.post.domain.*;
+import thegoods.server.post.domain.repository.*;
 import thegoods.server.post.exception.handler.PostHandler;
 import thegoods.server.post.presentation.dto.PostRequestDTO;
 
@@ -31,11 +32,11 @@ public class PostCommandServiceImpl implements PostCommandService {
     private final FollowRepository followRepository;
     private final MemberRepository memberRepository;
     private final UtilService utilService;
-    private final com.umc.TheGoods.repository.post.PostRepository postRepository;
-    private final com.umc.TheGoods.repository.post.PostImgRepository postImgRepository;
-    private final com.umc.TheGoods.repository.post.PostLikeRepository postLikeRepository;
-    private final com.umc.TheGoods.repository.post.CommentRepository commentRepository;
-    private final com.umc.TheGoods.repository.post.CommentLikeRepository commentLikeRepository;
+    private final PostRepository postRepository;
+    private final PostImgRepository postImgRepository;
+    private final PostLikeRepository postLikeRepository;
+    private final CommentRepository commentRepository;
+    private final CommentLikeRepository commentLikeRepository;
 
     @Override
     public void follow(Long followingId, Member follower) {

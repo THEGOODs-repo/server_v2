@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.item.domain.Category;
 import thegoods.server.item.exception.CategoryHandler;
+import thegoods.server.member.domain.repository.CategoryRepository;
 
 @Service
 @RequiredArgsConstructor

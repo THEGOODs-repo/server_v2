@@ -1,0 +1,91 @@
+spring:
+  profiles:
+    active: local
+  devtools:
+    restart:
+      enabled: true
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: ${DB_DRIVER}
+  redis:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
+    password: ${REDIS_PASSWORD}
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+    auth-code-expiration-millis: 1800000
+    username: ${SPRING_MAIL_USERNAME}
+    password: ${SPRING_MAIL_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+      hibernate:
+      # show_sql: true
+      format_sql: true
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+
+logging:
+  level:
+    org.hibernate.SQL: info
+    org.hibernate.type: trace
+servlet:
+  multipart:
+    enabled: true
+    maxFileSize: 1000MB
+    maxRequestSize: 1000MB
+springdoc:
+  swagger-ui:
+    tags-sorter: alpha            # alpha: 알파벳 순 태그 정렬, method: HTTP Method 순 정렬
+    operations-sorter: alpha      # alpha: 알파벳 순 태그 정렬, method: HTTP Method 순 정렬
+
+jwt:
+  token:
+    secret: ${JWT_TOKEN_SECRET}
+
+cloud:
+  aws:
+    s3:
+      bucket: thegoods-dev
+      path:
+        item: item
+        member: member
+        post: post
+        review: review
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+    credentials:
+      accessKey: ${CLOUD_AWS_CREDENTIALS_ACCESSKEY}
+      secretKey: ${CLOUD_AWS_CREDENTIALS_SECRETKEY}
+
+social:
+  kakao:
+    client-id: ${KAKAO_CLIENT_ID}
+    redirect-uri: ${KAKAO_REDIRECT_URI}
+
+  naver:
+    client-id: ${NAVER_CLIENT_ID}
+    redirect-uri: ${NAVER_REDIRECT_URI}
+    client-secret: ${NAVER_CLIENT_SECRET}

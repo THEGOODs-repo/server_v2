@@ -36,9 +36,7 @@ public class DataCommandServiceImpl implements DataCommandService {
 
     private final MemberRepository memberRepository;
     private final BCryptPasswordEncoder encoder; // 비밀번호 암호화
-    private final CategoryRepository categoryRepository;
     private final TermRepository termRepository;
-    private final ProfileImgRepository profileImgRepository;
     private final CategoryQueryService categoryQueryService;
     private final ItemRepository itemRepository;
     private final TagRepository tagRepository;
