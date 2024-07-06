@@ -1,4 +1,4 @@
-package com.umc.TheGoods.repository.post;
+package thegoods.server.post.domain.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

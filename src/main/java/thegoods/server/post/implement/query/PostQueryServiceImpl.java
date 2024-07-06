@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import thegoods.server.post.domain.repository.PostRepository;
 import thegoods.server.post.presentation.dto.PostResponseDTO;
 import thegoods.server.post.domain.Post;
 
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 @Transactional(readOnly = true)
 public class PostQueryServiceImpl implements PostQueryService {
 
-    private final com.umc.TheGoods.repository.post.PostRepository postRepository;
+    private final PostRepository postRepository;
 
     @Override
     public List<PostResponseDTO> getAllPostsSortedByLikes() {

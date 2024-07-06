@@ -13,7 +13,7 @@ public interface ItemTagRepository extends JpaRepository<ItemTag, Long> {
 
     ItemTag findByTagId(Long tagId);
 
-    @Query(value = "SELECT NEW com.umc.TheGoods.web.dto.item.ConsultResultDTO(it.item.id,COUNT(it.tag.id)) " +
+    @Query(value = "SELECT NEW thegoods.server.item.presentation.dto.ConsultResultDTO(it.item.id,COUNT(it.tag.id)) " +
             "FROM ItemTag AS it " +
             "GROUP BY it.item.id " +
             "ORDER BY COUNT(it.tag.id) DESC ")

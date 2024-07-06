@@ -11,6 +11,7 @@ import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.exception.status.SuccessStatus;
 import thegoods.server.common.presentation.ApiResponse;
 import thegoods.server.member.domain.Member;
+import thegoods.server.member.exception.handler.MemberHandler;
 import thegoods.server.member.implement.query.MemberQueryService;
 import thegoods.server.post.implement.command.PostCommandService;
 import thegoods.server.post.implement.query.PostQueryService;

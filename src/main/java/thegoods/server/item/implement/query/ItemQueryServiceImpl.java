@@ -16,6 +16,9 @@ import thegoods.server.item.exception.CategoryHandler;
 import thegoods.server.item.exception.ItemHandler;
 import thegoods.server.item.exception.TagHandler;
 import thegoods.server.member.domain.Member;
+import thegoods.server.member.domain.repository.CategoryRepository;
+import thegoods.server.member.domain.repository.MemberRepository;
+import thegoods.server.member.exception.handler.MemberHandler;
 
 import java.time.LocalDate;
 import java.util.*;

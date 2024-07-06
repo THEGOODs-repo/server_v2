@@ -65,7 +65,7 @@ public class DataApi {
             memberCategoryList.add(generatedLong);
 
             // 회원 가입
-            DataRequestDTO.setMemberDTO sellerDTO = new DataRequestDTO.setMemberDTO(request.sellerName, request.itemUuid, termAgreeList, memberCategoryList);
+            DataRequestDTO.setMemberDTO sellerDTO = new DataRequestDTO.setMemberDTO(request.getSellerName(), request.getItemUuid(), termAgreeList, memberCategoryList);
             seller = dataCommandService.addMember(sellerDTO);
         } else {
             log.info("=========================== 닉네임으로 회원 찾음 ================================");
