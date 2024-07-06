@@ -1,6 +1,5 @@
 package thegoods.server.common.security.utils;
 
-import com.umc.TheGoods.redis.service.RedisService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
@@ -10,6 +9,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import thegoods.server.common.exception.handler.JwtHandler;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.security.provider.TokenProvider;
+import thegoods.server.redis.service.RedisService;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

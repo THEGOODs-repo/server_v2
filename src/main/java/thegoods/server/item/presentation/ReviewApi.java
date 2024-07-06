@@ -17,6 +17,8 @@ import thegoods.server.item.implement.command.ReviewCommandService;
 import thegoods.server.item.presentation.dto.ReviewRequestDTO;
 import thegoods.server.item.presentation.dto.ReviewResponseDTO;
 import thegoods.server.member.domain.Member;
+import thegoods.server.member.exception.handler.MemberHandler;
+import thegoods.server.member.implement.query.MemberQueryService;
 
 import javax.validation.Valid;
 

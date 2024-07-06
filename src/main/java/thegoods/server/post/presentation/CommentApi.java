@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Comment", description = "댓글 관련 API 입니다.")
 public class CommentApi {
 
-    final CommentService commentService;
-    final MemberService memberService;
-    final PostService postService;
+
 
 
 }

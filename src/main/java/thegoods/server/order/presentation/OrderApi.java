@@ -16,6 +16,8 @@ import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.presentation.ApiResponse;
 import thegoods.server.common.validation.annotation.CheckPage;
 import thegoods.server.member.domain.Member;
+import thegoods.server.member.exception.handler.MemberHandler;
+import thegoods.server.member.implement.query.MemberQueryService;
 import thegoods.server.order.converter.OrderConverter;
 import thegoods.server.order.domain.OrderItem;
 import thegoods.server.order.domain.Orders;

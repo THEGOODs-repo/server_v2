@@ -1,5 +1,6 @@
 package thegoods.server.post.converter;
 
+import thegoods.server.member.domain.Follow;
 import thegoods.server.member.domain.Member;
 import thegoods.server.post.domain.*;
 

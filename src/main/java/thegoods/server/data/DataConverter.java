@@ -9,6 +9,7 @@ import thegoods.server.data.dto.DataRequestDTO;
 import thegoods.server.data.dto.DataResponseDTO;
 import thegoods.server.item.domain.*;
 import thegoods.server.member.domain.Member;
+import thegoods.server.member.domain.ProfileImg;
 
 import java.util.ArrayList;
 import java.util.Date;
