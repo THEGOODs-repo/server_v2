@@ -1,11 +1,12 @@
 package thegoods.server.common.validation.validator;
 
-//import com.umc.TheGoods.service.MemberService.MemberCommandService;
+
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import thegoods.server.common.exception.status.ErrorStatus;
 import thegoods.server.common.validation.annotation.ExistCategory;
+import thegoods.server.member.implement.command.MemberCommandService;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

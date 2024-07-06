@@ -23,6 +23,8 @@ import thegoods.server.item.implement.query.ItemQueryService;
 import thegoods.server.item.presentation.dto.ItemRequestDTO;
 import thegoods.server.item.presentation.dto.ItemResponseDTO;
 import thegoods.server.member.domain.Member;
+import thegoods.server.member.exception.handler.MemberHandler;
+import thegoods.server.member.implement.query.MemberQueryService;
 
 import javax.validation.Valid;
 import java.util.List;

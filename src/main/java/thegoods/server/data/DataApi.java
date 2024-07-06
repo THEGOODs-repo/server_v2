@@ -12,6 +12,9 @@ import thegoods.server.data.implement.DataCommandService;
 import thegoods.server.member.domain.Member;
 import thegoods.server.common.enums.Gender;
 import thegoods.server.item.domain.Item;
+import thegoods.server.member.implement.command.MemberCommandServiceImpl;
+import thegoods.server.member.implement.query.MemberQueryService;
+import thegoods.server.member.presentation.dto.MemberRequestDTO;
 
 
 import javax.validation.Valid;
