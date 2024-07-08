@@ -66,7 +66,7 @@ jwt:
 cloud:
   aws:
     s3:
-      bucket: thegoods-dev
+      bucket: thegoods-s3
       path:
         item: item
         member: member
@@ -89,3 +89,7 @@ social:
     client-id: ${NAVER_CLIENT_ID}
     redirect-uri: ${NAVER_REDIRECT_URI}
     client-secret: ${NAVER_CLIENT_SECRET}
+
+iamport:
+  key: ${IAMPORT_KEY}
+  secret: ${IAMPORT_SECRET}
