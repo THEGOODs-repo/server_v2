@@ -157,7 +157,7 @@ public class ItemConverter {
                 .endDate(request.getEndDate())
                 .dibsCount(0L)
                 .viewCount(0L)
-                .salesCount(0L)
+                .salesCount(0)
                 .tagsCount(0)
                 .status(ItemStatus.ONSALE)
                 .price(request.getPrice())

@@ -3,6 +3,7 @@ package thegoods.server.order.implement.command;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import thegoods.server.common.enums.CartStatus;
 import thegoods.server.common.enums.OrderStatus;
@@ -23,6 +24,9 @@ import thegoods.server.order.presentation.dto.OrderRequestDTO;
 import thegoods.server.item.domain.repository.ItemRepository;
 import thegoods.server.order.exception.OrderHandler;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -34,49 +38,38 @@ public class OrderCommandServiceImpl implements OrderCommandService {
     private final ItemRepository itemRepository;
     private final ItemOptionRepository itemOptionRepository;
     private final CartRepository cartRepository;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
+    @Transactional
     public Orders create(OrderRequestDTO.OrderAddDTO request, Member member) {
-        // item 및 itemOption의 재고와 주문 수량 비교
-        request.getOrderItemDTOList().forEach(orderItemDto -> {
-            Item item = itemRepository.findById(orderItemDto.getItemId()).get();
-
-            orderItemDto.getOrderDetailDTOList().forEach(orderDetailDTO -> {
-                if (orderDetailDTO.getItemOptionId() != null) { // 옵션이 있는 상품인 경우
-                    ItemOption itemOption = itemOptionRepository.findById(orderDetailDTO.getItemOptionId()).get();
-                    if (orderDetailDTO.getAmount() > itemOption.getStock()) { // 재고보다 주문 수량이 많은 경우
-                        throw new OrderHandler(ErrorStatus.LACK_OF_STOCK);
-                    }
-                } else { // 단일 상품인 경우
-                    if (orderDetailDTO.getAmount() > item.getStock()) {
-                        throw new OrderHandler(ErrorStatus.LACK_OF_STOCK);
-                    }
-                }
-            });
-        });
 
         // Orders 엔티티 생성 및 연관관계 매핑
         Orders newOrders = OrderConverter.toOrders(request);
         newOrders.setMember(member);
-        Orders orders = orderRepository.save(newOrders);
+
 
         // OrderItem, OrderDetail 엔티티 생성, 연관관계 매핑, 판매 재고 업데이트
         request.getOrderItemDTOList().forEach(orderItemDto -> {
-            Item item = itemRepository.findById(orderItemDto.getItemId()).get();
-
+            Item item = itemRepository.findByIdWithLock(orderItemDto.getItemId()).get();
+            entityManager.refresh(item);
             // OrderItem 엔티티 생성 및 연관관계 매핑
             OrderItem newOrderItem = OrderConverter.toOrderItem(request, item.getDeliveryFee());
             newOrderItem.setItem(item);
-            newOrderItem.setOrders(orders);
-            OrderItem orderItem = orderItemRepository.save(newOrderItem);
+            newOrderItem.setOrders(newOrders);
+
 
             orderItemDto.getOrderDetailDTOList().forEach(orderDetailDTO -> {
                 if (orderDetailDTO.getItemOptionId() != null) { // 옵션이 있는 상품인 경우
-                    ItemOption itemOption = itemOptionRepository.findById(orderDetailDTO.getItemOptionId()).get();
-
+                    ItemOption itemOption = itemOptionRepository.findByIdWithLock(orderDetailDTO.getItemOptionId()).get();
+                    entityManager.refresh(itemOption);
+                    if (orderDetailDTO.getAmount() > itemOption.getStock()) { // 재고보다 주문 수량이 많은 경우
+                        throw new OrderHandler(ErrorStatus.LACK_OF_STOCK);
+                    }
                     // OrderDetail 엔티티 생성
                     OrderDetail orderDetail = OrderConverter.toOrderDetail(orderDetailDTO, itemOption.getPrice());
-                    orderDetail.setOrderItem(orderItem);
+                    orderDetail.setOrderItem(newOrderItem);
                     orderDetail.setItemOption(itemOption);
 
                     // item, itemOption의 판매량, 재고 업데이트
@@ -84,17 +77,21 @@ public class OrderCommandServiceImpl implements OrderCommandService {
                     itemOption.updateStock(-orderDetail.getAmount());
 
                     // OrderItem 주문 상품 합산 금액 업데이트
-                    orderItem.updateTotalPrice(orderDetail.getOrderPrice());
+                    newOrderItem.updateTotalPrice(orderDetail.getOrderPrice());
                 } else {
+                    if (orderDetailDTO.getAmount() > item.getStock()) {
+                        throw new OrderHandler(ErrorStatus.LACK_OF_STOCK);
+                    }
                     OrderDetail orderDetail = OrderConverter.toOrderDetail(orderDetailDTO, item.getPrice());
-                    orderDetail.setOrderItem(orderItem);
+                    orderDetail.setOrderItem(newOrderItem);
 
                     // item의 판매량, 재고 업데이트
                     item.updateSales(orderDetail.getAmount());
                     item.updateStock(-orderDetail.getAmount());
 
+
                     // OrderItem 주문 상품 합산 금액 업데이트
-                    orderItem.updateTotalPrice(orderDetail.getOrderPrice());
+                    newOrderItem.updateTotalPrice(orderDetail.getOrderPrice());
                 }
 
                 // 장바구니에서 주문 요청하는 경우, cartId에 해당하는 장바구니 내역 삭제
@@ -109,12 +106,12 @@ public class OrderCommandServiceImpl implements OrderCommandService {
                     cart.setCartStatus(CartStatus.USER_DEL);
                 }
             });
-            orderItem.updateTotalPrice(Long.valueOf(item.getDeliveryFee()));
-
+            newOrderItem.updateTotalPrice(Long.valueOf(item.getDeliveryFee()));
+            orderItemRepository.save(newOrderItem);
 
         });
 
-        return orders;
+        return orderRepository.save(newOrders);
     }
 
     @Override

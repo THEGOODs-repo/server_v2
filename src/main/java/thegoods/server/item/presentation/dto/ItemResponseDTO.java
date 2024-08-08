@@ -53,7 +53,7 @@ public class ItemResponseDTO {
         String category;
         Long viewCount;
         Long dibsCount;
-        Long salesCount;
+        Integer salesCount;
         List<ItemImgResponseDTO> itemImgUrlList;
         List<ItemOptionResponseDTO> itemOptionList;
         List<String> itemTag;

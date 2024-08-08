@@ -40,7 +40,7 @@ public class DataRequestDTO {
         @NotNull
         Long dibsCount;
         @NotNull
-        Long salesCount;
+        Integer salesCount;
         @NotNull
         Long category;
         @Nullable
