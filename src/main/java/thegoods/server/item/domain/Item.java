@@ -66,7 +66,7 @@ public class Item extends BaseDateTimeEntity {
     private Long dibsCount;
 
     @Column(nullable = false)
-    private Long salesCount;
+    private Integer salesCount;
 
     @Column
     private Integer tagsCount;

@@ -3,15 +3,20 @@ package thegoods.server.item.domain.repository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 import thegoods.server.item.domain.Category;
 import thegoods.server.item.domain.Item;
 import thegoods.server.item.domain.Tag;
 import thegoods.server.member.domain.Member;
 
+import javax.persistence.LockModeType;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
@@ -58,5 +63,10 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     Item findItemByOrderItem(Long orderItemId);
 
     List<Item> findAllByMember(Member member);
+
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    @Query("SELECT e FROM Item e WHERE e.id = :id")
+    Optional<Item> findByIdWithLock(@Param("id") Long id);
+
 }
 

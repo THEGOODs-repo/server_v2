@@ -38,8 +38,10 @@ spring:
     properties:
       dialect: org.hibernate.dialect.MySQL8InnoDBDialect
       hibernate:
-      # show_sql: true
+        use_sql_comments: true
+      show_sql: true
       format_sql: true
+      type: trace
   servlet:
     multipart:
       max-file-size: 500MB
@@ -47,8 +49,20 @@ spring:
 
 logging:
   level:
-    org.hibernate.SQL: info
-    org.hibernate.type: trace
+    org:
+      hibernate:
+        SQL: DEBUG
+        type: TRACE
+        engine:
+          transaction:
+            internal:
+              TransactionImpl: DEBUG
+          jdbc:
+            spi:
+              SqlExceptionHelper: DEBUG
+          spi: TRACE
+        event: TRACE
+
 servlet:
   multipart:
     enabled: true
